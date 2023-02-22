@@ -117,7 +117,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/threesigmaxyz/committee" title="Git repository" aria-label="Git repository">
+                        <a href="https://github.com/threesigmaxyz/starkex-ragnarok-committee" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
@@ -209,7 +209,7 @@ tools on top of.</p>
 <p>Scripts can be run in any network (for example, goerli) by doing</p>
 <ul>
 <li>Edit the script in <code>01_Deploy.s.sol</code>.</li>
-<li>Set up <code>PRIVATE_KEY</code> and <code>RPC_URL_GOERLI</code> in <code>.env</code>.</li>
+<li>Set up <code>PRIVATE_KEY</code>, <code>RPC_URL_GOERLI</code> and <code>ETHERSCAN_KEY</code> in <code>.env</code>.</li>
 <li>Run <code>make deploy-network network=goerli</code>.</li>
 <li>The receipts are in <code>/broadcast/run-latest.json</code>.</li>
 </ul>
@@ -236,7 +236,7 @@ tools on top of.</p>
 <li><a href="src/components/FactRegistry.sol/contract.FactRegistry.html">FactRegistry</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="factregistry"><a class="header" href="#factregistry">FactRegistry</a></h1>
-<p><a href="https://github.com/threesigmaxyz/committee/blob/bf1aec3fdad33259b6277eb4442940664640217b/src/components/FactRegistry.sol">Git Source</a></p>
+<p><a href="https://github.com/threesigmaxyz/starkex-ragnarok-committee/blob/7085d61090178d9931f2b1acb692247154ab142e/src/components/FactRegistry.sol">Git Source</a></p>
 <p><strong>Inherits:</strong>
 <a href="src/components/FactRegistry.sol//src/interfaces/IQueryableFactRegistry.sol/contract.IQueryableFactRegistry.html">IQueryableFactRegistry</a></p>
 <h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
@@ -267,19 +267,19 @@ tools on top of.</p>
 <li><a href="src/interfaces/Identity.sol/contract.Identity.html">Identity</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="iavailabilityverifier"><a class="header" href="#iavailabilityverifier">IAvailabilityVerifier</a></h1>
-<p><a href="https://github.com/threesigmaxyz/committee/blob/bf1aec3fdad33259b6277eb4442940664640217b/src/interfaces/IAvailabilityVerifier.sol">Git Source</a></p>
+<p><a href="https://github.com/threesigmaxyz/starkex-ragnarok-committee/blob/7085d61090178d9931f2b1acb692247154ab142e/src/interfaces/IAvailabilityVerifier.sol">Git Source</a></p>
 <h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
 <h3 id="verifyavailabilityproof"><a class="header" href="#verifyavailabilityproof">verifyAvailabilityProof</a></h3>
 <pre><code class="language-solidity">function verifyAvailabilityProof(bytes32 claimHash, bytes calldata availabilityProofs) external;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ifactregistry"><a class="header" href="#ifactregistry">IFactRegistry</a></h1>
-<p><a href="https://github.com/threesigmaxyz/committee/blob/bf1aec3fdad33259b6277eb4442940664640217b/src/interfaces/IFactRegistry.sol">Git Source</a></p>
+<p><a href="https://github.com/threesigmaxyz/starkex-ragnarok-committee/blob/7085d61090178d9931f2b1acb692247154ab142e/src/interfaces/IFactRegistry.sol">Git Source</a></p>
 <h2 id="functions-2"><a class="header" href="#functions-2">Functions</a></h2>
 <h3 id="isvalid-1"><a class="header" href="#isvalid-1">isValid</a></h3>
 <pre><code class="language-solidity">function isValid(bytes32 fact) external view returns (bool);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="iqueryablefactregistry"><a class="header" href="#iqueryablefactregistry">IQueryableFactRegistry</a></h1>
-<p><a href="https://github.com/threesigmaxyz/committee/blob/bf1aec3fdad33259b6277eb4442940664640217b/src/interfaces/IQueryableFactRegistry.sol">Git Source</a></p>
+<p><a href="https://github.com/threesigmaxyz/starkex-ragnarok-committee/blob/7085d61090178d9931f2b1acb692247154ab142e/src/interfaces/IQueryableFactRegistry.sol">Git Source</a></p>
 <p><strong>Inherits:</strong>
 <a href="src/interfaces/IQueryableFactRegistry.sol//src/interfaces/IFactRegistry.sol/contract.IFactRegistry.html">IFactRegistry</a></p>
 <h2 id="functions-3"><a class="header" href="#functions-3">Functions</a></h2>
@@ -287,13 +287,13 @@ tools on top of.</p>
 <pre><code class="language-solidity">function hasRegisteredFact() external view returns (bool);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="identity"><a class="header" href="#identity">Identity</a></h1>
-<p><a href="https://github.com/threesigmaxyz/committee/blob/bf1aec3fdad33259b6277eb4442940664640217b/src/interfaces/Identity.sol">Git Source</a></p>
+<p><a href="https://github.com/threesigmaxyz/starkex-ragnarok-committee/blob/7085d61090178d9931f2b1acb692247154ab142e/src/interfaces/Identity.sol">Git Source</a></p>
 <h2 id="functions-4"><a class="header" href="#functions-4">Functions</a></h2>
 <h3 id="identify"><a class="header" href="#identify">identify</a></h3>
 <pre><code class="language-solidity">function identify() external pure returns (string memory);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="committee"><a class="header" href="#committee">Committee</a></h1>
-<p><a href="https://github.com/threesigmaxyz/committee/blob/bf1aec3fdad33259b6277eb4442940664640217b/src/Committee.sol">Git Source</a></p>
+<p><a href="https://github.com/threesigmaxyz/starkex-ragnarok-committee/blob/7085d61090178d9931f2b1acb692247154ab142e/src/Committee.sol">Git Source</a></p>
 <p><strong>Inherits:</strong>
 <a href="src/Committee.sol//src/components/FactRegistry.sol/contract.FactRegistry.html">FactRegistry</a>, <a href="src/Committee.sol//src/interfaces/IAvailabilityVerifier.sol/contract.IAvailabilityVerifier.html">IAvailabilityVerifier</a>, <a href="src/Committee.sol//src/interfaces/Identity.sol/contract.Identity.html">Identity</a></p>
 <h2 id="state-variables-1"><a class="header" href="#state-variables-1">State Variables</a></h2>
