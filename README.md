@@ -106,7 +106,7 @@ $ make build
 
 Scripts can be run in any network (for example, goerli) by doing
 - Edit the script in `01_Deploy.s.sol`.
-- Set up the private key in `.env`.
+- Set up `PRIVATE_KEY` and `RPC_URL_GOERLI` in `.env`.
 - Run `make deploy-network network=goerli`.
 - The receipts are in `/broadcast/run-latest.json`.
 
