@@ -3,22 +3,33 @@ pragma solidity ^0.8.0;
 
 import { Script } from "@forge-std/Script.sol";
 
-import { Greeter } from "src/Greeter.sol";
-
-/// @dev See the "Solidity Scripting" section in the Foundry Book if this is your first time with Forge.
-/// https://book.getfoundry.sh/tutorials/solidity-scripting?highlight=scripts#solidity-scripting
 contract Deploy is Script {
-    function setUp() public {
-        // solhint-disable-previous-line no-empty-blocks
+
+    function run() public {
+        uint256 deployerPrivateKey_ = vm.envUint("PRIVATE_KEY");
+
+        vm.startBroadcast(deployerPrivateKey_);
+
+        _deployDataAvailabilityCommittee();
+    
+        vm.stopBroadcast();
     }
 
-    /// @dev You can send multiple transactions inside a single script.
-    function run() public {
-        vm.startBroadcast();
+    /// @dev deploy data availabigetStateUpdateInitData()lity committee contract
+    function _deployDataAvailabilityCommittee() internal {
+        // load DA threshold from env
+        uint256 numSignaturesRequired_ = vm.envUint("STARKEX_DA_THRESHOLD");
+        require(numSignaturesRequired_ != 0, "STARKEX:DDAC:ZERO_NUM_SIGNATURES");
 
-        // deploy contract
-        new Greeter("GM");
+        // load DA members from env
+        address[] memory committeeMembers_ = vm.envAddress("STARKEX_DA_COMMITTEE", ",");
 
-        vm.stopBroadcast();
+        // validate settings
+        require(committeeMembers_.length >= numSignaturesRequired_, "STARKEX:DDAC:OUT_OF_BOUNDS");
+
+        // deploy committee contract
+        address committee_ = deployCode("Committee.sol", abi.encode(committeeMembers_, numSignaturesRequired_));
+
+        require(committee_ != address(0), "STARKEX:DDAC:ZERO_ADDRESS");
     }
 }
