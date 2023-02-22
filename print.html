@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="src/Greeter.sol/contract.Greeter.html">Greeter</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="src/components/index.html">❱ components</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/components/FactRegistry.sol/contract.FactRegistry.html">FactRegistry</a></li></ol></li><li class="chapter-item "><a href="src/interfaces/index.html">❱ interfaces</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/interfaces/IAvailabilityVerifier.sol/contract.IAvailabilityVerifier.html">IAvailabilityVerifier</a></li><li class="chapter-item "><a href="src/interfaces/IFactRegistry.sol/contract.IFactRegistry.html">IFactRegistry</a></li><li class="chapter-item "><a href="src/interfaces/IQueryableFactRegistry.sol/contract.IQueryableFactRegistry.html">IQueryableFactRegistry</a></li><li class="chapter-item "><a href="src/interfaces/Identity.sol/contract.Identity.html">Identity</a></li></ol></li><li class="chapter-item "><a href="src/Committee.sol/contract.Committee.html">Committee</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -117,7 +117,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/threesigmaxyz/Comittee" title="Git repository" aria-label="Git repository">
+                        <a href="https://github.com/threesigmaxyz/committee" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
@@ -250,55 +250,113 @@ tools on top of.</p>
 <p align="center">
   <img src="https://threesigma.xyz/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fthree-sigma-labs-research-capital-white.0f8e8f50.png&w=2048&q=75" width="75%" />
 </p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="greeter"><a class="header" href="#greeter">Greeter</a></h1>
-<p><a href="https://github.com/threesigmaxyz/Comittee/blob/ceb207eb36c4e80fbca97bf3bb7f594280eb824c/src/Greeter.sol">Git Source</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents"><a class="header" href="#contents">Contents</a></h1>
+<ul>
+<li><a href="src/components/FactRegistry.sol/contract.FactRegistry.html">FactRegistry</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="factregistry"><a class="header" href="#factregistry">FactRegistry</a></h1>
+<p><a href="https://github.com/threesigmaxyz/committee/blob/b2d4518973120577a5bcc2c61378ba3cd3e012c3/src/components/FactRegistry.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="src/components/FactRegistry.sol//src/interfaces/IQueryableFactRegistry.sol/contract.IQueryableFactRegistry.html">IQueryableFactRegistry</a></p>
 <h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
-<h3 id="greeting"><a class="header" href="#greeting">greeting</a></h3>
-<p>The greeting message.</p>
-<pre><code class="language-solidity">string public greeting;
+<h3 id="verifiedfact"><a class="header" href="#verifiedfact">verifiedFact</a></h3>
+<pre><code class="language-solidity">mapping(bytes32 =&gt; bool) private verifiedFact;
+</code></pre>
+<h3 id="anyfactregistered"><a class="header" href="#anyfactregistered">anyFactRegistered</a></h3>
+<pre><code class="language-solidity">bool anyFactRegistered;
 </code></pre>
 <h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="isvalid"><a class="header" href="#isvalid">isValid</a></h3>
+<pre><code class="language-solidity">function isValid(bytes32 fact) external view override returns (bool);
+</code></pre>
+<h3 id="_factcheck"><a class="header" href="#_factcheck">_factCheck</a></h3>
+<pre><code class="language-solidity">function _factCheck(bytes32 fact) internal view returns (bool);
+</code></pre>
+<h3 id="registerfact"><a class="header" href="#registerfact">registerFact</a></h3>
+<pre><code class="language-solidity">function registerFact(bytes32 factHash) internal;
+</code></pre>
+<h3 id="hasregisteredfact"><a class="header" href="#hasregisteredfact">hasRegisteredFact</a></h3>
+<pre><code class="language-solidity">function hasRegisteredFact() external view override returns (bool);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents-1"><a class="header" href="#contents-1">Contents</a></h1>
+<ul>
+<li><a href="src/interfaces/IAvailabilityVerifier.sol/contract.IAvailabilityVerifier.html">IAvailabilityVerifier</a></li>
+<li><a href="src/interfaces/IFactRegistry.sol/contract.IFactRegistry.html">IFactRegistry</a></li>
+<li><a href="src/interfaces/IQueryableFactRegistry.sol/contract.IQueryableFactRegistry.html">IQueryableFactRegistry</a></li>
+<li><a href="src/interfaces/Identity.sol/contract.Identity.html">Identity</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iavailabilityverifier"><a class="header" href="#iavailabilityverifier">IAvailabilityVerifier</a></h1>
+<p><a href="https://github.com/threesigmaxyz/committee/blob/b2d4518973120577a5bcc2c61378ba3cd3e012c3/src/interfaces/IAvailabilityVerifier.sol">Git Source</a></p>
+<h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
+<h3 id="verifyavailabilityproof"><a class="header" href="#verifyavailabilityproof">verifyAvailabilityProof</a></h3>
+<pre><code class="language-solidity">function verifyAvailabilityProof(bytes32 claimHash, bytes calldata availabilityProofs) external;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ifactregistry"><a class="header" href="#ifactregistry">IFactRegistry</a></h1>
+<p><a href="https://github.com/threesigmaxyz/committee/blob/b2d4518973120577a5bcc2c61378ba3cd3e012c3/src/interfaces/IFactRegistry.sol">Git Source</a></p>
+<h2 id="functions-2"><a class="header" href="#functions-2">Functions</a></h2>
+<h3 id="isvalid-1"><a class="header" href="#isvalid-1">isValid</a></h3>
+<pre><code class="language-solidity">function isValid(bytes32 fact) external view returns (bool);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iqueryablefactregistry"><a class="header" href="#iqueryablefactregistry">IQueryableFactRegistry</a></h1>
+<p><a href="https://github.com/threesigmaxyz/committee/blob/b2d4518973120577a5bcc2c61378ba3cd3e012c3/src/interfaces/IQueryableFactRegistry.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="src/interfaces/IQueryableFactRegistry.sol//src/interfaces/IFactRegistry.sol/contract.IFactRegistry.html">IFactRegistry</a></p>
+<h2 id="functions-3"><a class="header" href="#functions-3">Functions</a></h2>
+<h3 id="hasregisteredfact-1"><a class="header" href="#hasregisteredfact-1">hasRegisteredFact</a></h3>
+<pre><code class="language-solidity">function hasRegisteredFact() external view returns (bool);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="identity"><a class="header" href="#identity">Identity</a></h1>
+<p><a href="https://github.com/threesigmaxyz/committee/blob/b2d4518973120577a5bcc2c61378ba3cd3e012c3/src/interfaces/Identity.sol">Git Source</a></p>
+<h2 id="functions-4"><a class="header" href="#functions-4">Functions</a></h2>
+<h3 id="identify"><a class="header" href="#identify">identify</a></h3>
+<pre><code class="language-solidity">function identify() external pure returns (string memory);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="committee"><a class="header" href="#committee">Committee</a></h1>
+<p><a href="https://github.com/threesigmaxyz/committee/blob/b2d4518973120577a5bcc2c61378ba3cd3e012c3/src/Committee.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="src/Committee.sol//src/components/FactRegistry.sol/contract.FactRegistry.html">FactRegistry</a>, <a href="src/Committee.sol//src/interfaces/IAvailabilityVerifier.sol/contract.IAvailabilityVerifier.html">IAvailabilityVerifier</a>, <a href="src/Committee.sol//src/interfaces/Identity.sol/contract.Identity.html">Identity</a></p>
+<h2 id="state-variables-1"><a class="header" href="#state-variables-1">State Variables</a></h2>
+<h3 id="signature_length"><a class="header" href="#signature_length">SIGNATURE_LENGTH</a></h3>
+<pre><code class="language-solidity">uint256 constant SIGNATURE_LENGTH = 32 * 2 + 1;
+</code></pre>
+<h3 id="signaturesrequired"><a class="header" href="#signaturesrequired">signaturesRequired</a></h3>
+<pre><code class="language-solidity">uint256 public signaturesRequired;
+</code></pre>
+<h3 id="ismember"><a class="header" href="#ismember">isMember</a></h3>
+<pre><code class="language-solidity">mapping(address =&gt; bool) public isMember;
+</code></pre>
+<h2 id="functions-5"><a class="header" href="#functions-5">Functions</a></h2>
 <h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
-<p><em>Constructor function that sets the greeting message.</em></p>
-<pre><code class="language-solidity">constructor(string memory newGreeting);
+<p><em>Contract constructor sets initial members and required number of signatures.</em></p>
+<pre><code class="language-solidity">constructor(address[] memory committeeMembers, uint256 numSignaturesRequired) public;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>newGreeting</code></td><td><code>string</code></td><td>The greeting message to be set.</td></tr>
+<tr><td><code>committeeMembers</code></td><td><code>address[]</code></td><td>List of committee members.</td></tr>
+<tr><td><code>numSignaturesRequired</code></td><td><code>uint256</code></td><td>Number of required signatures.</td></tr>
 </tbody></table>
 </div>
-<h3 id="greet"><a class="header" href="#greet">greet</a></h3>
-<p>Function to greet everyone with a given message.</p>
-<pre><code class="language-solidity">function greet(string memory myGm) external returns (string memory greet_);
+<h3 id="identify-1"><a class="header" href="#identify-1">identify</a></h3>
+<pre><code class="language-solidity">function identify() external pure override returns (string memory);
+</code></pre>
+<h3 id="verifyavailabilityproof-1"><a class="header" href="#verifyavailabilityproof-1">verifyAvailabilityProof</a></h3>
+<p><em>Verifies the availability proof. Reverts if invalid.
+An availability proof should have a form of a concatenation of ec-signatures by signatories.
+Signatures should be sorted by signatory address ascendingly.
+Signatures should be 65 bytes long. r(32) + s(32) + v(1).
+There should be at least the number of required signatures as defined in this contract
+and all signatures provided should be from signatories.
+See :sol:mod:<code>AvailabilityVerifiers</code> for more information on when this is used.</em></p>
+<pre><code class="language-solidity">function verifyAvailabilityProof(bytes32 claimHash, bytes calldata availabilityProofs) external override;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>myGm</code></td><td><code>string</code></td><td>The message to be used for greeting.</td></tr>
+<tr><td><code>claimHash</code></td><td><code>bytes32</code></td><td>The hash of the claim the committee is signing on. The format is keccak256(abi.encodePacked( newValidiumVaultRoot, validiumTreeHeight, newOrderRoot, orderTreeHeight sequenceNumber))</td></tr>
+<tr><td><code>availabilityProofs</code></td><td><code>bytes</code></td><td>Concatenated ec signatures by committee members.</td></tr>
 </tbody></table>
 </div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>greet_</code></td><td><code>string</code></td><td>The message used for greeting.</td></tr>
-</tbody></table>
-</div>
-<h3 id="setgreeting"><a class="header" href="#setgreeting">setGreeting</a></h3>
-<p>Sets the greeting message.</p>
-<pre><code class="language-solidity">function setGreeting(string memory newGreeting) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>newGreeting</code></td><td><code>string</code></td><td>The new greeting message.</td></tr>
-</tbody></table>
-</div>
-<h2 id="events"><a class="header" href="#events">Events</a></h2>
-<h3 id="loggreet"><a class="header" href="#loggreet">LogGreet</a></h3>
-<p>Emitted when upon a valid greet.</p>
-<pre><code class="language-solidity">event LogGreet();
-</code></pre>
-<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
-<h3 id="badgmerror"><a class="header" href="#badgmerror">BadGmError</a></h3>
-<p>Thrown when a bad greet is requested.</p>
-<pre><code class="language-solidity">error BadGmError();
+<h3 id="bytestobytes32"><a class="header" href="#bytestobytes32">bytesToBytes32</a></h3>
+<pre><code class="language-solidity">function bytesToBytes32(bytes memory array, uint256 offset) private pure returns (bytes32 result);
 </code></pre>
 
                     </main>
